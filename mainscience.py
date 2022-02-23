@@ -11,7 +11,7 @@ def download_pubmed(keyword):
     query_key = lista_1["QueryKey"]
     handle = Entrez.efetch(db="pubmed",
                            rettype="medline", 
-                           retmode="text", 
+                          retmode="text", 
                            retstart=0,
                            retmax=543, webenv=webenv, query_key=query_key)
     pub = handle.read()
