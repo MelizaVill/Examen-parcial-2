@@ -1,4 +1,4 @@
-from Bio import Entrest
+from Bio import Entrez
 import re
 import pandas as pd
 
@@ -11,7 +11,7 @@ def download_pubmed(keyword):
     query_key = lista_1["QueryKey"]
     handle = Entrez.efetch(db="pubmed",
                            rettype="medline", 
-                          retmode="text", 
+                           retmode="text", 
                            retstart=0,
                            retmax=543, webenv=webenv, query_key=query_key)
     pub = handle.read()
@@ -51,7 +51,7 @@ def mining_pubs(tipo,archivo):
         l=dire
         j=dire.split(' ')
         if j[0] == 'AD':
-            l=j[-1]
+            l=j[-1]   
         AP.append(l)
 
     b=0
@@ -118,6 +118,7 @@ def mining_pubs(tipo,archivo):
 
     TableC = pd.DataFrame({'Country' : CO,
                            'num_auth' : AD})
+    
     if tipo =='DP':
         return TableA
     if tipo == 'AU':
